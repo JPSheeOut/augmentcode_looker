@@ -81,12 +81,6 @@ view: google_asset_report {
     sql: ${TABLE}.campaign_type ;;
   }
 
-  dimension: campaign_sub_type {
-    label: "Campaign Sub Type"
-    description: "Campaign sub type is derived from the campaign to sort into important sub types. Available campaign types are brand, competitive, orchestration, speed_to_lead, scheduling, and other"
-    type: string
-    sql: ${TABLE}.campaign_sub_type ;;
-  }
 
 
 # START MEASURE MODELING
