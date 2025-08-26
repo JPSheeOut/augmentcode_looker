@@ -27,3 +27,4 @@ persist_with: augmentcode_default_datagroup
 
 explore: google_asset_report {}
 
+explore: platform_full_funnel {}
