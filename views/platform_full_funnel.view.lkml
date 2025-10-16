@@ -120,6 +120,39 @@ view: platform_full_funnel {
     sql: ${TABLE}.customer ;;
   }
 
+  measure: total_sessions_attributed {
+    description: "Sums the total sessions metric from the augment data export"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${TABLE}.total_sessions_attributed ;;
+  }
+
+  measure: total_signups_attributed {
+    description: "Sums the signups metric from the augment data export"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${TABLE}.signups_attributed ;;
+  }
+  measure: total_installations_attributed {
+    description: "Sums the installations metric from the augment data export"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${TABLE}.installation_attributed ;;
+  }
+  measure: total_activations_attributed {
+    description: "Sums the activations metric from the augment data export"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${TABLE}.activations_attributed ;;
+  }
+  measure: total_payments_attributed {
+    description: "Sums the paments metric from the augment data export"
+    type: sum
+    value_format_name: decimal_0
+    sql: ${TABLE}.payments_attributed ;;
+  }
+
+
 
   ##START Calculated Measures Here
 
@@ -225,6 +258,46 @@ view: platform_full_funnel {
     type: number
     value_format_name: percent_2
     sql: ${total_customers} / NULLIF(${total_clicks}, 0);;
+  }
+
+  measure: cp_session_attributed {
+    label: "Cost per Session Attributed"
+    description: "(Total Spend/Total Session Attributed)"
+    type: number
+    value_format_name: usd_0
+    sql: ${total_spend} / NULLIF(${total_sessions_attributed}, 0);;
+  }
+
+  measure: cp_signup_attributed{
+    label: "Cost per Signup Attributed"
+    description: "(Total Spend/Total Signup Attributed)"
+    type: number
+    value_format_name: usd_0
+    sql: ${total_spend} / NULLIF(${total_signups_attributed}, 0);;
+  }
+
+  measure: cp_activation_attributed{
+    label: "Cost per Activation Attributed"
+    description: "(Total Spend/Total Activations Attributed)"
+    type: number
+    value_format_name: usd_0
+    sql: ${total_spend} / NULLIF(${total_activations_attributed}, 0);;
+  }
+
+  measure: cp_installation_attributed{
+    label: "Cost per Installation Attributed"
+    description: "(Total Spend/Total Installations Attributed)"
+    type: number
+    value_format_name: usd_0
+    sql: ${total_spend} / NULLIF(${total_installations_attributed}, 0);;
+  }
+
+  measure: cp_payments_attributed{
+    label: "Cost per Payment Attributed"
+    description: "(Total Spend/Total Payments Attributed)"
+    type: number
+    value_format_name: usd_0
+    sql: ${total_spend} / NULLIF(${total_payments_attributed}, 0);;
   }
 
 }
