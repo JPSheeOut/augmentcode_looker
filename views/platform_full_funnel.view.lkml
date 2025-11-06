@@ -300,6 +300,15 @@ view: platform_full_funnel {
     sql: ${total_spend} / NULLIF(${total_payments_attributed}, 0);;
   }
 
+  measure: sessions_attributed_cvr{
+    label: "Sessions Attributed CVR"
+    description: "(Total Sessions Attributed/Total Clicks)"
+    type: number
+    value_format_name: percent_2
+    sql: ${total_sessions_attributed} / NULLIF(${total_clicks}, 0);;
+  }
+
+
   measure: signup_attributed_cvr{
     label: "Signup Attributed CVR"
     description: "(Total Signup Attributed/Total Clicks)"
