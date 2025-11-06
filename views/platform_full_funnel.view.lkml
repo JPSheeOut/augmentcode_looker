@@ -300,4 +300,41 @@ view: platform_full_funnel {
     sql: ${total_spend} / NULLIF(${total_payments_attributed}, 0);;
   }
 
+  measure: signup_attributed_cvr{
+    label: "Signup Attributed CVR"
+    description: "(Total Signup Attributed/Total Clicks)"
+    type: number
+    value_format_name: percent_2
+    sql: ${total_signups_attributed} / NULLIF(${total_clicks}, 0);;
+  }
+
+
+  measure: activation_attributed_cvr{
+    label: "Activation Attributed CVR"
+    description: "(Total Activations Attributed/Total Clicks)"
+    type: number
+    value_format_name: percent_2
+    sql: ${total_activations_attributed} / NULLIF(${total_clicks}, 0);;
+  }
+
+
+  measure: installations_attributed_cvr{
+    label: "Installations Attributed CVR"
+    description: "(Total Installations Attributed/Total Clicks)"
+    type: number
+    value_format_name: percent_2
+    sql: ${total_installations_attributed} / NULLIF(${total_clicks}, 0);;
+  }
+
+  measure: payments_attributed_cvr{
+    label: "Payments Attributed CVR"
+    description: "(Total Payments Attributed/Total Clicks)"
+    type: number
+    value_format_name: percent_2
+    sql: ${total_payments_attributed} / NULLIF(${total_clicks}, 0);;
+  }
+
+
+
+
 }
